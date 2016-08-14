@@ -21,5 +21,8 @@ RSpec.feature "Poll management", type: :feature do
     visit "/polls/1/take"
     choose 'name_Coke'
     click_button "Vote"
+
+    expect(current_path).to eq results_poll_path(id: 1)
+    expect(page).to have_content("Coke: 1")
   end
 end

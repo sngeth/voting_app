@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814002124) do
+ActiveRecord::Schema.define(version: 20160814120509) do
 
   create_table "choices", force: :cascade do |t|
     t.string   "name"
     t.integer  "poll_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "votes"
   end
 
   add_index "choices", ["poll_id"], name: "index_choices_on_poll_id"

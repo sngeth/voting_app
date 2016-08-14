@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @poll.title %>
+</p>
+<%= form_tag("/polls/#{@poll.id}/vote", method: "post") do %>
+  <%= radio_button_tag(:name, "#{@poll.choices[0].name}") %>
+  <%= radio_button_tag(:name, "#{@poll.choices[1].name}") %>
+  <%= label_tag(:choice_1, "#{@poll.choices[0].name}") %>
+  <%= label_tag(:choice_1, "#{@poll.choices[1].name}") %>
+  <%= submit_tag("Vote") %>
+<% end %>
+<%= link_to 'Back', polls_path %>

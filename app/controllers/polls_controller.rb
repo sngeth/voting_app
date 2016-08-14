@@ -1,11 +1,19 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :take, :edit, :update, :destroy]
+  before_action :set_poll, only: [:show, :take, :vote, :results,
+                                  :edit, :update, :destroy]
 
   def take
   end
 
   def vote
-    render nothing: true
+    choice = Choice.where(poll_id: params[:id],
+                          name: params[:name]).first
+    choice.increment!(:votes)
+
+    redirect_to results_poll_path(id: 1)
+  end
+
+  def results
   end
 
   # GET /polls
@@ -77,6 +85,7 @@ class PollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
-      params.require(:poll).permit(:title, choices_attributes: [:id, :name])
+      params.require(:poll).permit(:title, choices_attributes:
+                                   [:id, :name])
     end
 end

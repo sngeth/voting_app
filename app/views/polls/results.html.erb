@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @poll.title %>
+</p>
+<p>
+  <strong>Choice 1:</strong>
+  <%= @poll.choices[0].name %>: <%= @poll.choices[0].votes %>
+</p>
+<p>
+  <strong>Choice 2:</strong>
+  <%= @poll.choices[1].name %>: <%= @poll.choices[1].votes %>
+</p>
+<%= link_to 'Back', polls_path %>
