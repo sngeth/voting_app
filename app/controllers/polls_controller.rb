@@ -1,5 +1,12 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :edit, :update, :destroy]
+  before_action :set_poll, only: [:show, :take, :edit, :update, :destroy]
+
+  def take
+  end
+
+  def vote
+    render nothing: true
+  end
 
   # GET /polls
   # GET /polls.json
