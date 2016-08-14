@@ -4,6 +4,13 @@
   <strong>Title:</strong>
   <%= @poll.title %>
 </p>
-
+<p>
+  <strong>Choice 1:</strong>
+  <%= @poll.choices[0].name %>
+</p>
+<p>
+  <strong>Choice 2:</strong>
+  <%= @poll.choices[1].name %>
+</p>
 <%= link_to 'Edit', edit_poll_path(@poll) %> |
 <%= link_to 'Back', polls_path %>
