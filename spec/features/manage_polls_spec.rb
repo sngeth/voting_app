@@ -10,11 +10,12 @@ RSpec.feature "Poll management", type: :feature do
     click_button "Create Poll"
   end
 
-  scenario "User can create and view new poll" do
+  scenario "User can create then view/share new poll" do
     expect(page).to have_text("Poll was successfully created.")
     expect(page).to have_content("What is your favorite brand")
     expect(page).to have_content("Coke")
     expect(page).to have_content("Pepsi")
+    expect(page).to have_selector(:link_or_button, 'Link To Take Poll')
   end
 
   scenario "Users can vote on polls" do
