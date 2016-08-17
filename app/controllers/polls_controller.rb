@@ -2,6 +2,8 @@ class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :take, :vote, :results,
                                   :edit, :update, :destroy]
 
+  before_action :authenticate_user!, except: [:take, :vote, :results]
+
   def take
   end
 
