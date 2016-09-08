@@ -1,0 +1,7 @@
+= simple_form_for(@poll) do |f|
+  #choices
+  = f.simple_fields_for :choices do |choice|
+    = render 'choice_fields', :f => choice
+  .links
+    = link_to_add_association 'add choice', f, :choices
+  = f.submit

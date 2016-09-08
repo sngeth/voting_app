@@ -1,0 +1,11 @@
+p
+  strong = @poll.title
+
+- if @poll.choices.any?
+  - for choice in @poll.choices
+    = choice.name
+    br
+
+=' link_to 'Edit', edit_poll_path(@poll)
+=' link_to 'Link To Take Poll', take_poll_path(@poll)
+= link_to 'Back', polls_path
