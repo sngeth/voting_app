@@ -20,6 +20,9 @@ require 'rails_helper'
 
 RSpec.describe PollsController, type: :controller do
 
+  before(:each) do
+    sign_in
+  end
   # This should return the minimal set of attributes required to create a valid
   # Poll. As you add validations to Poll, be sure to
   # adjust the attributes here as well.
