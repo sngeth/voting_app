@@ -1,3 +1,6 @@
+- flash.each do |key, value|
+  div[class="#{flash_class(key)}"]
+    = value
 p
   strong = @poll.title
 
@@ -6,6 +9,6 @@ p
     = choice.name
     br
 
-=' link_to 'Edit', edit_poll_path(@poll)
-=' link_to 'Link To Take Poll', take_poll_path(@poll)
+=> link_to 'Edit', edit_poll_path(@poll)
+=> link_to 'Link To Take Poll', take_poll_path(@poll)
 = link_to 'Back', polls_path

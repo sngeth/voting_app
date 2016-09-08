@@ -21,6 +21,10 @@ RSpec.feature "Poll management", type: :feature do
     expect(page).to have_selector(:link_or_button, 'Link To Take Poll')
   end
 
+  scenario "User can create arbitrary number of choices" do
+    visit "/polls/1"
+  end
+
   scenario "Users can vote on polls" do
     visit "/polls/1/take"
     choose 'name_Coke'
