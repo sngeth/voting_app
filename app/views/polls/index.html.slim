@@ -1,0 +1,26 @@
+- flash.each do |key, value|
+  div[class="#{flash_class(key)}"]
+    = value
+
+h1 Listing Polls
+
+-if @polls.any?
+  table class="table"
+    thead
+      tr
+        th Title
+        th colspan="3"
+
+    tbody
+      - @polls.each do |poll|
+        tr
+          td = poll.title
+          td = link_to 'Show', poll
+          td = link_to 'Edit', edit_poll_path(poll)
+          td = link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' }
+-else
+  p = "No polls created"
+
+br
+
+= link_to 'New Poll', new_poll_path

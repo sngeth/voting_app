@@ -5,4 +5,5 @@
     = render 'choice_fields', :f => choice
   .links
     = link_to_add_association 'add choice', f, :choices
-  = f.submit
+  br
+  = f.submit class: "btn btn-default"
