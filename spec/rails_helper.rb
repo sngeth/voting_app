@@ -9,8 +9,11 @@ require 'spec_helper'
 require 'rspec/rails'
 
 RSpec.configure do |config|
-    config.include Devise::Test::IntegrationHelpers, type: :feature
-    config.global_fixtures = :all
+  config.include Warden::Test::Helpers
+  config.global_fixtures = :all
+  config.after :each do
+    Warden.test_reset!
+  end
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 

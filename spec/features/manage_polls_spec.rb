@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Poll management", type: :feature do
   before(:each) do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+
     visit "/polls/new"
 
     fill_in "Title", with: "What is your favorite brand?"

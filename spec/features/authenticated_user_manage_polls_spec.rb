@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.feature "Poll management", type: :feature do
-  fixtures :users
-
   scenario "Unauthenicated user cannot create poll" do
     visit "/polls/new"
     expect(current_path).to eq "/users/sign_in"
   end
 
   scenario "Only authenticated user can create polls" do
-    sign_in users(:one)
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+
     visit "/polls/new"
     fill_in "Title", with: "What is your favorite brand?"
     fill_in "poll_choices_attributes_0_name", with: "Coke"
