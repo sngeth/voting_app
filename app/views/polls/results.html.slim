@@ -1,0 +1,7 @@
+p
+  strong Title:
+  =< @poll.title
+
+= column_chart @poll.choices.group(:name).sum(:votes)
+
+= link_to 'Back', @poll

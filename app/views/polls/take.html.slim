@@ -1,0 +1,13 @@
+p
+  strong Title:
+  = @poll.title
+
+= form_tag("/polls/#{@poll.id}/vote", method: "post") do
+  -if @poll.choices.any?
+    -@poll.choices.each do |choice|
+      div class="radio"
+      = label_tag("name_#{choice.name}", "#{choice.name}")
+      = radio_button_tag(:name, "#{choice.name}")
+  = submit_tag("Vote")
+
+= link_to 'Back', polls_path

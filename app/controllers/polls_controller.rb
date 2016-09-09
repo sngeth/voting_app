@@ -12,7 +12,7 @@ class PollsController < ApplicationController
                           name: params[:name]).first
     choice.increment!(:votes)
 
-    redirect_to results_poll_path(id: 1)
+    redirect_to results_poll_path(id: params[:id])
   end
 
   def results

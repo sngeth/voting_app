@@ -30,7 +30,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'simple_form'
 gem 'slim'
 gem 'cocoon'
-
+gem 'chartkick'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
